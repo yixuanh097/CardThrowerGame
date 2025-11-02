@@ -31,6 +31,8 @@ func _physics_process(delta: float) -> void:
 	velocity = motion * speed
 
 
+#	awawawaw
+
 	match control_mode:
 		ControlMode.MouseAndKeyboard:
 #			mouse position in viewport coordinates
