@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbfw3fr4qxq0v"]
+
+[ext_resource type="PackedScene" uid="uid://1ggtglgl0kvn" path="res://player.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://dbdntkqq8b0ej" path="res://sky_background.webp" id="2_fj7yv"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_f3sb7")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -4096
+scale = Vector2(5, 5)
+texture = ExtResource("2_fj7yv")
