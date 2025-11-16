@@ -68,7 +68,7 @@ func _handle_fire():
 	proj.direction = Vector2.from_angle(look_angle)
 	proj.speed = 1000
 	proj.projectile_owner = self
-	proj.lifetime = 0.2
+	proj.lifetime = 1.0
 	get_tree().current_scene.add_child(proj)
 	
 
