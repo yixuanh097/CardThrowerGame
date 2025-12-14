@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://tcc34gjo21sg"]
+[gd_scene load_steps=8 format=3 uid="uid://tcc34gjo21sg"]
 
 [ext_resource type="Script" uid="uid://b5vq3lgr83w5p" path="res://scripts/enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://bpf2twgeweu4g" path="res://assets/icon.svg" id="1_7k104"]
 [ext_resource type="PackedScene" uid="uid://bc6862ehmgnwd" path="res://scenes/projectile.tscn" id="2_qi2p4"]
 [ext_resource type="PackedScene" uid="uid://c65ut4j8wt130" path="res://scenes/hurtbox.tscn" id="4_iifgy"]
+[ext_resource type="PackedScene" uid="uid://b6pl8jt0eg64" path="res://health_bar.tscn" id="5_c4w8v"]
+[ext_resource type="Script" uid="uid://oduj8i1os61w" path="res://scripts/enemy_buff.gd" id="6_xwavj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 size = Vector2(128, 128)
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_4gyqm")
 projectile_prefab = ExtResource("2_qi2p4")
 
@@ -28,4 +30,14 @@ autostart = true
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_4gyqm")
 
+[node name="HealthBar" parent="." instance=ExtResource("5_c4w8v")]
+MAX_HEALTH = 3
+
+[node name="Enemy_Buff" type="Node" parent="."]
+script = ExtResource("6_xwavj")
+metadata/_custom_type_script = "uid://oduj8i1os61w"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="take_damage" from="Hurtbox" to="Enemy_Buff" method="prevent_damage"]
+[connection signal="OnDie" from="HealthBar" to="." method="on_die"]
+[connection signal="change_health" from="Enemy_Buff" to="HealthBar" method="changeHealth"]

@@ -19,6 +19,10 @@ config/icon="res://assets/icon.svg"
 
 InputChecker="*res://scripts/input_checker.gd"
 
+[dotnet]
+
+project/assembly_name="Card Thrower"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -27,6 +31,8 @@ version_control/autoload_on_startup=true
 [global_group]
 
 projectiles=""
+Player="contains player"
+enemy=""
 
 [input]
 

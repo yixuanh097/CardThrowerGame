@@ -4,7 +4,8 @@ class_name Projectile2D
 
 @export var speed := 500.0
 @export var direction := Vector2(1.0, 0.0)
-@export var projectile_owner: Node2D
+@export var projectile_owner:Node
+@export var damage:int = 1
 
 
 

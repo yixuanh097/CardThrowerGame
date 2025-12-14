@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 
 @export var projectile_prefab: PackedScene
 
@@ -13,3 +14,7 @@ func _on_timer_timeout() -> void:
 	proj.direction = Vector2(0.0, 1.0)
 	proj.projectile_owner = self
 	get_tree().current_scene.add_child(proj)
+
+
+func on_die() -> void:
+	self.queue_free()

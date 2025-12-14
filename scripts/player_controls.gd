@@ -17,11 +17,11 @@ func _ready() -> void:
 	pass
 	
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 #	Called every process.
 	pass
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	
 #	Grabs motion into a vector
@@ -69,9 +69,13 @@ func _handle_fire():
 	proj.speed = 1000
 	proj.projectile_owner = self
 	proj.lifetime = 1.0
+	proj.damage = 1;
 	get_tree().current_scene.add_child(proj)
 	
 
 
 func _on_fire_cooldown_finish() -> void:
 	can_shoot = true
+
+func on_die()->void:
+	self.queue_free();

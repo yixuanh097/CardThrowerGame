@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt1khrcuobggq"]
+
+[ext_resource type="Script" uid="uid://0t84xrqh3f6a" path="res://scripts/enemy_source.gd" id="1_etp1y"]
+[ext_resource type="PackedScene" uid="uid://tcc34gjo21sg" path="res://scenes/enemy.tscn" id="2_cxh1y"]
+
+[node name="Enemy Source" type="Node2D"]
+script = ExtResource("1_etp1y")
+enemy_type = ExtResource("2_cxh1y")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.0719999999999998
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
