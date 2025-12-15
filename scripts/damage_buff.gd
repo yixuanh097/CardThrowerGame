@@ -10,5 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func process_damage(damage:Damage) -> int:
-	return 0;
+func process_damage(damage:Damage) -> Damage:
+	return damage;

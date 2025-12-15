@@ -4,12 +4,11 @@ class_name EnemyBuff
 
 
 
-func process_damage(damage:Damage) -> int:
+func process_damage(damage:Damage) -> Damage:
 	print("projctile from enemy")
 	if damage.source.get_groups().has("enemy"):
-		return 0;
-	else:
-		return damage.damage;
+		damage.damage = 0;
+	return damage;
 		
 
 # Called when the node enters the scene tree for the first time.

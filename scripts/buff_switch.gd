@@ -25,12 +25,12 @@ func get_damage_buffs() -> Array[Buff]:
 
 func apply_damage_buffs(damage:Damage) -> void:
 	var damage_buffs = get_damage_buffs();
-	var new_damage:int = damage.damage;
+	var new_damage:Damage = damage;
 	if (damage_buffs.is_empty()):
-		take_damage.emit(damage.damage);
+		pass
 	else:
 		for buff in damage_buffs:
 			buff = buff as DamageBuff
-			new_damage = buff.process_damage(damage);
-	take_damage.emit(-new_damage);
+			new_damage = buff.process_damage(new_damage);
+	take_damage.emit(-new_damage.damage);
 					
