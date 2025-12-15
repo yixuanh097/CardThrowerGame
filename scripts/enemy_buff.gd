@@ -1,20 +1,20 @@
-extends Buff
-class_name Enemy_Buff
+extends DamageBuff
+class_name EnemyBuff
 # prevents enemy's damage on other enemies
 
-signal change_health;
 
-func prevent_damage(damage:int, source: Node2D):
+
+func process_damage(damage:Damage) -> int:
 	print("projctile from enemy")
-	if source.get_groups().has("enemy"):
-		pass
+	if damage.source.get_groups().has("enemy"):
+		return 0;
 	else:
-		change_health.emit(damage);
+		return damage.damage;
 		
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

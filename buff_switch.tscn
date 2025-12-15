@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1b8qk1x8b5c2"]
+
+[ext_resource type="Script" uid="uid://d2muexiuvum10" path="res://buff_switch.gd" id="1_7dtav"]
+
+[node name="BuffSwitch" type="Node2D"]
+script = ExtResource("1_7dtav")
